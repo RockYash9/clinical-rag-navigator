@@ -1,0 +1,1 @@
+"""Text -> vector embedding generation."""

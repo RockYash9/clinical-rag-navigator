@@ -1,0 +1,24 @@
+# Core
+pydantic>=2.7
+pydantic-settings>=2.3
+python-dotenv>=1.0
+pyyaml>=6.0
+
+# Ingestion
+pypdf>=4.2
+beautifulsoup4>=4.12
+lxml>=5.2
+requests>=2.32
+tqdm>=4.66
+
+# Embeddings + retrieval
+sentence-transformers>=3.0
+faiss-cpu>=1.8
+numpy>=1.26
+
+# LLM (local, free — via Ollama)
+ollama>=0.2
+
+# API layer
+fastapi>=0.111
+uvicorn[standard]>=0.30

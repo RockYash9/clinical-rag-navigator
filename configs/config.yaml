@@ -1,0 +1,30 @@
+# Central pipeline configuration.
+# Values here are defaults; secrets/environment-specific values live in .env
+
+ingestion:
+  chunk_size: 400          # words per chunk
+  chunk_overlap: 80        # overlap between consecutive chunks
+  supported_formats: ["pdf", "html", "xml"]
+
+embedding:
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  batch_size: 32
+
+retrieval:
+  top_k: 8                 # chunks retrieved before re-ranking
+  top_k_after_rerank: 4    # chunks passed to the LLM
+  use_hybrid_search: true  # combine keyword + semantic search
+
+generation:
+  temperature: 0.1         # low temperature — factual grounding over creativity
+  max_tokens: 800
+
+citation:
+  min_confidence_threshold: 0.55
+
+corpus:
+  tiers:
+    - name: general_guidelines
+      description: "Broad primary-care guidance (WHO, NICE general practice, CDC)"
+    - name: disease_specific
+      description: "Deep-dive protocol documents per condition"
