@@ -1,0 +1,113 @@
+2026-08-02 17:55:31,789 | INFO     | __main__ | Loaded 4 source(s) from configs/sources.yaml
+2026-08-02 17:55:31,791 | INFO     | clinical_rag.ingestion.loaders | Downloading who_pen_2020 from https://iris.who.int/bitstream/handle/10665/334186/9789240009226-eng.pdf
+2026-08-02 17:55:44,135 | INFO     | clinical_rag.ingestion.loaders | Saved data\raw\general_guidelines\who_pen_2020.pdf (755 bytes)
+2026-08-02 17:55:44,183 | WARNING  | pypdf._reader | invalid pdf header: b'<!DOC'
+2026-08-02 17:55:44,183 | WARNING  | pypdf._reader | EOF marker not found
+2026-08-02 17:55:44,184 | ERROR    | __main__ | Failed to ingest source who_pen_2020 — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_from_pdf(pdf_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\loaders.py", line 62, in extract_text_from_pdf
+    reader = PdfReader(str(path))
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_reader.py", line 151, in __init__
+    self._initialize_stream(stream)
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_reader.py", line 175, in _initialize_stream
+    self.read(stream)
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_reader.py", line 684, in read
+    self._find_eof_marker(stream)
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_reader.py", line 797, in _find_eof_marker
+    line = read_previous_line(stream)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_utils.py", line 339, in read_previous_line
+    raise PdfStreamError(STREAM_TRUNCATED_PREMATURELY)
+pypdf.errors.PdfStreamError: Stream has ended unexpectedly
+2026-08-02 17:55:44,213 | INFO     | clinical_rag.ingestion.loaders | Downloading who_hypertension_2021 from https://apps.who.int/iris/bitstream/handle/10665/344424/9789240033986-eng.pdf
+2026-08-02 17:55:51,082 | INFO     | clinical_rag.ingestion.loaders | Saved data\raw\disease_specific\who_hypertension_2021.pdf (755 bytes)
+2026-08-02 17:55:51,093 | WARNING  | pypdf._reader | invalid pdf header: b'<!DOC'
+2026-08-02 17:55:51,094 | WARNING  | pypdf._reader | EOF marker not found
+2026-08-02 17:55:51,096 | ERROR    | __main__ | Failed to ingest source who_hypertension_2021 — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_from_pdf(pdf_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\loaders.py", line 62, in extract_text_from_pdf
+    reader = PdfReader(str(path))
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_reader.py", line 151, in __init__
+    self._initialize_stream(stream)
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_reader.py", line 175, in _initialize_stream
+    self.read(stream)
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_reader.py", line 684, in read
+    self._find_eof_marker(stream)
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_reader.py", line 797, in _find_eof_marker
+    line = read_previous_line(stream)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_utils.py", line 339, in read_previous_line
+    raise PdfStreamError(STREAM_TRUNCATED_PREMATURELY)
+pypdf.errors.PdfStreamError: Stream has ended unexpectedly
+2026-08-02 17:55:51,099 | INFO     | clinical_rag.ingestion.loaders | Downloading who_emro_diabetes from https://applications.emro.who.int/dsaf/dsa664.pdf
+2026-08-02 17:55:53,203 | INFO     | clinical_rag.ingestion.loaders | Saved data\raw\disease_specific\who_emro_diabetes.pdf (860896 bytes)
+2026-08-02 17:55:53,263 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 0 of data\raw\disease_specific\who_emro_diabetes.pdf
+2026-08-02 17:55:54,087 | INFO     | __main__ | Ingested who_emro_diabetes: 72 chunks
+2026-08-02 17:55:54,088 | INFO     | clinical_rag.ingestion.loaders | Downloading idf_type2_diabetes_2012 from https://www.iapb.org/wp-content/uploads/Global-Guideline-for-Type-2-Diabetes-IDF-2012.pdf
+2026-08-02 17:55:56,621 | INFO     | clinical_rag.ingestion.loaders | Saved data\raw\disease_specific\idf_type2_diabetes_2012.pdf (612956 bytes)
+2026-08-02 17:55:56,757 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 1 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-02 17:55:56,814 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 4 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-02 17:55:56,876 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 8 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-02 17:55:59,130 | INFO     | __main__ | Ingested idf_type2_diabetes_2012: 130 chunks
+2026-08-02 17:55:59,130 | INFO     | __main__ | Done. 202 total chunks written to data\processed\chunks.jsonl
+2026-08-02 18:01:26,389 | INFO     | __main__ | Loaded 4 source(s) from configs/sources.yaml
+2026-08-02 18:01:26,396 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\general_guidelines\who_pen_2020.pdf
+2026-08-02 18:01:39,821 | INFO     | __main__ | Ingested who_pen_2020: 171 chunks
+2026-08-02 18:01:39,821 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-02 18:01:39,821 | WARNING  | pypdf._reader | invalid pdf header: b'<!DOC'
+2026-08-02 18:01:39,821 | WARNING  | pypdf._reader | EOF marker not found
+2026-08-02 18:01:39,821 | ERROR    | __main__ | Failed to ingest source who_hypertension_2021 — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_from_pdf(pdf_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\loaders.py", line 89, in extract_text_from_pdf
+    reader = PdfReader(str(path))
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_reader.py", line 151, in __init__
+    self._initialize_stream(stream)
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_reader.py", line 175, in _initialize_stream
+    self.read(stream)
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_reader.py", line 684, in read
+    self._find_eof_marker(stream)
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_reader.py", line 797, in _find_eof_marker
+    line = read_previous_line(stream)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\.venv\Lib\site-packages\pypdf\_utils.py", line 339, in read_previous_line
+    raise PdfStreamError(STREAM_TRUNCATED_PREMATURELY)
+pypdf.errors.PdfStreamError: Stream has ended unexpectedly
+2026-08-02 18:01:39,821 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\who_emro_diabetes.pdf
+2026-08-02 18:01:39,873 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 0 of data\raw\disease_specific\who_emro_diabetes.pdf
+2026-08-02 18:01:40,838 | INFO     | __main__ | Ingested who_emro_diabetes: 72 chunks
+2026-08-02 18:01:40,839 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-02 18:01:40,997 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 1 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-02 18:01:41,076 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 4 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-02 18:01:41,141 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 8 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-02 18:01:43,621 | INFO     | __main__ | Ingested idf_type2_diabetes_2012: 130 chunks
+2026-08-02 18:01:43,622 | INFO     | __main__ | Done. 373 total chunks written to data\processed\chunks.jsonl
+2026-08-02 18:02:41,759 | INFO     | __main__ | Loaded 4 source(s) from configs/sources.yaml
+2026-08-02 18:02:41,761 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\general_guidelines\who_pen_2020.pdf
+2026-08-02 18:02:55,517 | INFO     | __main__ | Ingested who_pen_2020: 171 chunks
+2026-08-02 18:02:55,518 | INFO     | clinical_rag.ingestion.loaders | Downloading who_hypertension_2021 from https://www.ncbi.nlm.nih.gov/books/NBK573631/pdf/Bookshelf_NBK573631.pdf
+2026-08-02 18:02:57,994 | INFO     | clinical_rag.ingestion.loaders | Saved data\raw\disease_specific\who_hypertension_2021.pdf (593376 bytes)
+2026-08-02 18:02:58,126 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 1 of data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-02 18:02:58,295 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 11 of data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-02 18:02:59,244 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 60 of data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-02 18:02:59,255 | INFO     | __main__ | Ingested who_hypertension_2021: 70 chunks
+2026-08-02 18:02:59,257 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\who_emro_diabetes.pdf
+2026-08-02 18:02:59,291 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 0 of data\raw\disease_specific\who_emro_diabetes.pdf
+2026-08-02 18:03:00,152 | INFO     | __main__ | Ingested who_emro_diabetes: 72 chunks
+2026-08-02 18:03:00,153 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-02 18:03:00,256 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 1 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-02 18:03:00,318 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 4 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-02 18:03:00,380 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 8 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-02 18:03:02,593 | INFO     | __main__ | Ingested idf_type2_diabetes_2012: 130 chunks
+2026-08-02 18:03:02,594 | INFO     | __main__ | Done. 443 total chunks written to data\processed\chunks.jsonl

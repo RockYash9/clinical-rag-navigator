@@ -1,0 +1,50 @@
+# Registry of source documents to ingest.
+# Each entry drives: download -> text extraction -> chunking -> tagging.
+# Add new sources here as the corpus grows; don't hardcode URLs in code.
+
+sources:
+  # NOTE: iris.who.int blocks automated/bot requests (returns a small HTML
+  # page instead of the PDF, which is what caused the "invalid pdf header"
+  # error during ingestion). No public non-blocked mirror of the full PEN
+  # document was found. Workaround: download it manually in a browser from
+  # https://www.who.int/publications/i/item/9789240009226 and save it to
+  # data/raw/general_guidelines/who_pen_2020.pdf — download_pdf() skips
+  # sources whose file already exists, so ingest.py will pick it up as-is.
+  - id: who_pen_2020
+    title: "WHO Package of Essential Noncommunicable (PEN) Disease Interventions for Primary Health Care"
+    tier: general_guidelines
+    condition: null
+    organization: "World Health Organization"
+    year: 2020
+    url: "https://iris.who.int/bitstream/handle/10665/334186/9789240009226-eng.pdf"
+    license: "CC BY-NC-SA 3.0 IGO"
+    manual_download: true
+
+  # NCBI Bookshelf mirror — same official WHO text, but served from a host
+  # that doesn't bot-block automated requests (unlike apps.who.int/iris).
+  - id: who_hypertension_2021
+    title: "WHO Guideline for the Pharmacological Treatment of Hypertension in Adults"
+    tier: disease_specific
+    condition: hypertension
+    organization: "World Health Organization"
+    year: 2021
+    url: "https://www.ncbi.nlm.nih.gov/books/NBK573631/pdf/Bookshelf_NBK573631.pdf"
+    license: "CC BY-NC-SA 3.0 IGO"
+
+  - id: who_emro_diabetes
+    title: "Diabetes Mellitus Guidelines"
+    tier: disease_specific
+    condition: diabetes
+    organization: "WHO Regional Office for the Eastern Mediterranean"
+    year: null
+    url: "https://applications.emro.who.int/dsaf/dsa664.pdf"
+    license: "WHO EMRO"
+
+  - id: idf_type2_diabetes_2012
+    title: "Global Guideline for Type 2 Diabetes"
+    tier: disease_specific
+    condition: diabetes
+    organization: "International Diabetes Federation"
+    year: 2012
+    url: "https://www.iapb.org/wp-content/uploads/Global-Guideline-for-Type-2-Diabetes-IDF-2012.pdf"
+    license: "IDF Clinical Guidelines Task Force"
