@@ -77,6 +77,11 @@ class VectorStore:
     @classmethod
     def load(cls, path: str | Path) -> "VectorStore":
         path = Path(path)
+        if not path.exists():
+            raise FileNotFoundError(
+                f"No index found at {path} — run scripts/build_index.py first"
+            )
+
         index = faiss.read_index(str(path))
 
         meta_path = path.with_suffix(path.suffix + ".chunks.jsonl")

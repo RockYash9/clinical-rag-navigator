@@ -31,7 +31,7 @@ class Embedder:
 
         logger.info("Loading embedding model: %s", self.model_name)
         self.model = SentenceTransformer(self.model_name)
-        self.dimension = self.model.get_sentence_embedding_dimension()
+        self.dimension = self.model.get_embedding_dimension()
 
     def embed_texts(self, texts: list[str]) -> np.ndarray:
         """Embed a batch of texts. Vectors are L2-normalized so that a FAISS
