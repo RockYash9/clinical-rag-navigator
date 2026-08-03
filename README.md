@@ -58,6 +58,21 @@ cp .env.example .env
 pytest
 ```
 
+## Usage
+
+**Interactive CLI** (loads the pipeline directly, no server needed):
+```bash
+python scripts/cli.py
+```
+
+**API server**:
+```bash
+uvicorn clinical_rag.api.main:app --reload
+```
+Then `POST /query` with `{"question": "..."}`.
+
+Both require `scripts/ingest.py` and `scripts/build_index.py` to have been run first.
+
 ## Project structure
 
 ```

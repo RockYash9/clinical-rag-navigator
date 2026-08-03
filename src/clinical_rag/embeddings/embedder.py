@@ -45,7 +45,7 @@ class Embedder:
         return self.model.encode(
             texts,
             batch_size=self.batch_size,
-            show_progress_bar=True,
+            show_progress_bar=len(texts) > 1,
             convert_to_numpy=True,
             normalize_embeddings=True,
         ).astype("float32")

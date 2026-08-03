@@ -22,3 +22,6 @@ ollama>=0.2
 # API layer
 fastapi>=0.111
 uvicorn[standard]>=0.30
+
+# CLI
+rich>=13.7

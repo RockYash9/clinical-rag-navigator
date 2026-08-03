@@ -13,6 +13,7 @@ from contextlib import asynccontextmanager
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 from clinical_rag.pipeline import RAGPipeline
@@ -24,6 +25,20 @@ setup_logging()
 logger = logging.getLogger(__name__)
 
 _pipeline: RAGPipeline | None = None
+
+
+class UTF8JSONResponse(JSONResponse):
+    """Explicitly declares charset=utf-8 on the Content-Type header.
+
+    Starlette's default JSONResponse omits the charset param for
+    application/json (technically spec-compliant, since JSON is UTF-8 by
+    definition per RFC 8259) — but some HTTP clients, notably Windows
+    PowerShell 5.1's Invoke-RestMethod, don't reliably infer UTF-8 without
+    it and mis-decode multi-byte characters (e.g. "≥" becomes "â¥"). Being
+    explicit here costs nothing and fixes it for every client.
+    """
+
+    media_type = "application/json; charset=utf-8"
 
 
 @asynccontextmanager
@@ -42,6 +57,7 @@ app = FastAPI(
     version="0.1.0",
     description="RAG system for querying clinical guidelines with cited, confidence-scored answers.",
     lifespan=lifespan,
+    default_response_class=UTF8JSONResponse,
 )
 
 

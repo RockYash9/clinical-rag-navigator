@@ -23,3 +23,20 @@ handlers:
 root:
   level: INFO
   handlers: [console, file]
+
+loggers:
+  # These libraries log every HTTP HEAD request / cache check at INFO,
+  # which is useful for debugging but drowns out the CLI's own output.
+  # Still logged to file at INFO for troubleshooting; just quieted on console.
+  httpx:
+    level: WARNING
+    handlers: [file]
+    propagate: false
+  huggingface_hub:
+    level: WARNING
+    handlers: [file]
+    propagate: false
+  sentence_transformers:
+    level: WARNING
+    handlers: [file]
+    propagate: false

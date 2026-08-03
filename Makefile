@@ -20,6 +20,9 @@ format:
 run-api:
 	uvicorn clinical_rag.api.main:app --reload --host 0.0.0.0 --port 8000
 
+cli:
+	python scripts/cli.py
+
 ingest:
 	python scripts/ingest.py
 
