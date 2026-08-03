@@ -13,6 +13,30 @@ Every source added to the YAML should get a row here too.
 | `who_emro_diabetes` | Diabetes Mellitus Guidelines | disease_specific | diabetes | WHO EMRO | — | WHO EMRO |
 | `idf_type2_diabetes_2012` | Global Guideline for Type 2 Diabetes | disease_specific | diabetes | IDF | 2012 | IDF Clinical Guidelines Task Force |
 
+## Research paper batch (diabetes focus)
+
+| ID | Title | Format | Organization | Year | License |
+|---|---|---|---|---|---|
+| `baynes_2015_classification_diagnosis` | Classification, Pathophysiology, Diagnosis and Management of Diabetes Mellitus | PDF | J Diabetes Metab (Baynes HW) | 2015 | CC BY 4.0 |
+| `ohiagu_2021_diabetic_complications` | Pathophysiology of Diabetes Mellitus and Its Complications: Metabolic Events and Control | PDF | Biomedical Research and Therapy | 2021 | CC BY 4.0 |
+| `schroeder_endotext_t2d_pharm_mgmt` | Management of Type 2 Diabetes: Selecting Amongst Available Pharmacological Agents | HTML | Endotext / MDText.com | 2026 (last updated) | CC BY-NC-ND |
+
+`schroeder_endotext_t2d_pharm_mgmt` is the first HTML-sourced document in the
+corpus — `source_type: html` in sources.yaml routes it through
+`download_html()` / `extract_text_from_html()` instead of the PDF path.
+HTML extraction is a generic heuristic (strip nav/header/footer, prefer a
+`<main>`/`<article>` container, fall back to `<body>`) rather than
+site-specific scraping, so it's worth spot-checking the extracted chunks
+for leftover site-navigation boilerplate after a fresh ingest.
+
+## Known issue: pmc.ncbi.nlm.nih.gov blocks automated requests (reCAPTCHA)
+
+Unlike `ncbi.nlm.nih.gov/books` (Bookshelf), the newer PMC article domain
+(`pmc.ncbi.nlm.nih.gov`) returns a reCAPTCHA challenge page to automated
+requests — same class of problem as the original iris.who.int issue.
+PMC articles were avoided in this batch for that reason; if a specific PMC
+article is needed later, it'll need `manual_download: true`.
+
 ## Other free sources worth adding later
 
 | Source | Access | Notes |

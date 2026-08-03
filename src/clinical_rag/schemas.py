@@ -10,6 +10,7 @@ from typing import Literal, Optional
 from pydantic import BaseModel, Field
 
 Tier = Literal["general_guidelines", "disease_specific"]
+SourceType = Literal["pdf", "html"]
 
 
 class SourceDocument(BaseModel):
@@ -24,10 +25,11 @@ class SourceDocument(BaseModel):
     url: str
     license: str
     manual_download: bool = False
+    source_type: SourceType = "pdf"
 
     @property
     def local_filename(self) -> str:
-        return f"{self.id}.pdf"
+        return f"{self.id}.{self.source_type}"
 
 
 class Chunk(BaseModel):

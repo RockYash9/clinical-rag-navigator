@@ -48,3 +48,33 @@ sources:
     year: 2012
     url: "https://www.iapb.org/wp-content/uploads/Global-Guideline-for-Type-2-Diabetes-IDF-2012.pdf"
     license: "IDF Clinical Guidelines Task Force"
+
+  # --- Research paper additions (diabetes focus) ---
+
+  - id: baynes_2015_classification_diagnosis
+    title: "Classification, Pathophysiology, Diagnosis and Management of Diabetes Mellitus"
+    tier: disease_specific
+    condition: diabetes
+    organization: "Journal of Diabetes & Metabolism (Baynes HW, 2015)"
+    year: 2015
+    url: "https://www.longdom.org/open-access-pdfs/classification-pathophysiology-diagnosis-and-management-of-diabetesmellitus-2155-6156-1000541.pdf"
+    license: "CC BY 4.0"
+
+  - id: ohiagu_2021_diabetic_complications
+    title: "Pathophysiology of Diabetes Mellitus and Its Complications: Metabolic Events and Control"
+    tier: disease_specific
+    condition: diabetes
+    organization: "Biomedical Research and Therapy (Ohiagu et al., 2021)"
+    year: 2021
+    url: "http://bmrat.com/index.php/BMRAT/article/download/663/1347"
+    license: "CC BY 4.0"
+
+  - id: schroeder_endotext_t2d_pharm_mgmt
+    title: "Management of Type 2 Diabetes: Selecting Amongst Available Pharmacological Agents"
+    tier: disease_specific
+    condition: diabetes
+    organization: "Endotext / MDText.com, Inc. (Schroeder EB)"
+    year: 2026
+    url: "https://www.ncbi.nlm.nih.gov/books/NBK425702/"
+    license: "CC BY-NC-ND"
+    source_type: html

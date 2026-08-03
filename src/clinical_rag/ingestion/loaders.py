@@ -10,6 +10,7 @@ from pathlib import Path
 
 import requests
 import yaml
+from bs4 import BeautifulSoup
 from pypdf import PdfReader
 
 from clinical_rag.schemas import SourceDocument
@@ -94,3 +95,105 @@ def extract_text_from_pdf(path: str | Path) -> str:
             logger.warning("No extractable text on page %d of %s", i, path)
         pages_text.append(text)
     return "\n\n".join(pages_text)
+
+
+# Phrases that show up on bot-detection / interstitial pages rather than
+# real article content — if we see these, something blocked us rather than
+# served the actual page, even though the HTTP status was 200.
+_BOT_BLOCK_SIGNATURES = (
+    "checking your browser",
+    "recaptcha",
+    "are you a robot",
+    "enable javascript",
+    "access denied",
+)
+
+
+def download_html(source: SourceDocument, dest_dir: str | Path = "data/raw") -> Path:
+    """Download a source's HTML page into data/raw/<tier>/, skipping if already present.
+
+    Same defensive validation philosophy as download_pdf: a 200 status isn't
+    enough to trust, since bot-detection interstitials often return 200 with
+    a challenge page instead of a real error code.
+    """
+    tier_dir = Path(dest_dir) / source.tier
+    tier_dir.mkdir(parents=True, exist_ok=True)
+    dest_path = tier_dir / source.local_filename
+
+    if dest_path.exists():
+        logger.info("Already downloaded, skipping: %s", dest_path)
+        return dest_path
+
+    if source.manual_download:
+        raise SourceUnavailableError(
+            f"{source.id} is flagged manual_download in sources.yaml — "
+            f"download {source.url} in a browser (save page as HTML) to {dest_path}"
+        )
+
+    logger.info("Downloading %s from %s", source.id, source.url)
+    response = requests.get(
+        source.url,
+        headers={"User-Agent": USER_AGENT},
+        timeout=DEFAULT_TIMEOUT,
+    )
+    response.raise_for_status()
+
+    content_type = response.headers.get("content-type", "")
+    if "html" not in content_type.lower():
+        raise SourceUnavailableError(
+            f"{source.id}: response from {source.url} is not HTML "
+            f"(content-type={content_type})."
+        )
+
+    lowered = response.text[:2000].lower()
+    if any(sig in lowered for sig in _BOT_BLOCK_SIGNATURES):
+        raise SourceUnavailableError(
+            f"{source.id}: response from {source.url} looks like a bot-detection "
+            f"page, not the real article. Try downloading manually and saving to "
+            f"{dest_path}, then mark manual_download: true in sources.yaml."
+        )
+
+    dest_path.write_text(response.text, encoding="utf-8")
+    logger.info("Saved %s (%d chars)", dest_path, len(response.text))
+    return dest_path
+
+
+def extract_text_from_html(path: str | Path) -> str:
+    """Extract article text from a saved HTML page, stripping boilerplate.
+
+    This is a generic heuristic, not site-specific scraping: strip script/
+    style/nav/header/footer tags, prefer a <main>/<article>/#maincontent
+    container if one exists, and fall back to the full body otherwise. It
+    won't be perfect on every site's markup, but it avoids hardcoding
+    selectors for one particular domain.
+    """
+    html = Path(path).read_text(encoding="utf-8")
+    soup = BeautifulSoup(html, "lxml")
+
+    for tag in soup(["script", "style", "nav", "header", "footer", "noscript"]):
+        tag.decompose()
+
+    main = (
+        soup.find("main")
+        or soup.find(id="maincontent")
+        or soup.find("article")
+        or soup.body
+        or soup
+    )
+
+    lines = [line.strip() for line in main.get_text(separator="\n").splitlines()]
+    return "\n".join(line for line in lines if line)
+
+
+def download_source(source: SourceDocument, dest_dir: str | Path = "data/raw") -> Path:
+    """Dispatches to download_pdf or download_html based on source.source_type."""
+    if source.source_type == "html":
+        return download_html(source, dest_dir)
+    return download_pdf(source, dest_dir)
+
+
+def extract_text(source: SourceDocument, path: str | Path) -> str:
+    """Dispatches to the right text extractor based on source.source_type."""
+    if source.source_type == "html":
+        return extract_text_from_html(path)
+    return extract_text_from_pdf(path)
