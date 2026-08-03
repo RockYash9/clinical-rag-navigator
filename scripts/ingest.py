@@ -10,6 +10,8 @@ import json
 import logging
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 from clinical_rag.ingestion.chunking import chunk_text
 from clinical_rag.ingestion.loaders import (
     download_pdf,
@@ -24,6 +26,7 @@ OUTPUT_PATH = Path("data/processed/chunks.jsonl")
 
 
 def main() -> None:
+    load_dotenv()
     setup_logging()
     sources = load_sources_config()
     logger.info("Loaded %d source(s) from configs/sources.yaml", len(sources))
