@@ -28,6 +28,7 @@ class RAGPipeline:
         retrieval_config = load_config().get("retrieval", {})
         self.top_k = retrieval_config.get("top_k", 8)
         self.top_k_after_rerank = retrieval_config.get("top_k_after_rerank", 4)
+        self.max_per_source = retrieval_config.get("max_per_source", 2)
 
         logger.info("Loading vector store from %s", index_path)
         self.store = VectorStore.load(index_path)
@@ -47,7 +48,9 @@ class RAGPipeline:
                 confidence=0.0,
             )
 
-        reranked = rerank(question, candidates, top_k=self.top_k_after_rerank)
+        reranked = rerank(
+            question, candidates, top_k=self.top_k_after_rerank, max_per_source=self.max_per_source
+        )
         top_chunks = [chunk for chunk, _score in reranked]
 
         prompt = build_prompt(question, top_chunks)

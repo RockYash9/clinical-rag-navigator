@@ -14,6 +14,7 @@ retrieval:
   top_k: 8                 # chunks retrieved before re-ranking
   top_k_after_rerank: 4    # chunks passed to the LLM
   use_hybrid_search: true  # combine keyword + semantic search
+  max_per_source: 2        # cap on chunks from any single document, so one long/dense source can't fill every slot
 
 generation:
   temperature: 0.1         # low temperature — factual grounding over creativity

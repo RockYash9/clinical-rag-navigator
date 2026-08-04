@@ -6,14 +6,17 @@ new document to the corpus means adding a YAML entry, not editing this module.
 from __future__ import annotations
 
 import logging
+import warnings
 from pathlib import Path
 
 import requests
 import yaml
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 from pypdf import PdfReader
 
 from clinical_rag.schemas import SourceDocument
+
+warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 logger = logging.getLogger(__name__)
 
@@ -83,17 +86,56 @@ def download_pdf(source: SourceDocument, dest_dir: str | Path = "data/raw") -> P
 def extract_text_from_pdf(path: str | Path) -> str:
     """Extract raw text from a PDF, page by page, joined with double newlines.
 
-    This is intentionally simple — no layout reconstruction. Tables and
-    multi-column layouts will need special handling later if a specific
-    guideline's text comes out garbled (flag it in docs/data_sources.md).
+    Also strips repeated running headers/footers (e.g. a journal citation
+    line like "DOI: 10.xxxx ... ISSN: xxxx" that appears on nearly every
+    page) before joining. Academic PDFs commonly repeat this front-matter
+    on every page, and without stripping it, that noise gets chunked
+    alongside real content — diluting retrieval and confusing generation
+    when a chunk turns out to be mostly repeated metadata rather than
+    substantive text.
+
+    Beyond that, this is intentionally simple — no layout reconstruction.
+    Tables and multi-column layouts will need special handling later if a
+    specific guideline's text comes out garbled (flag it in docs/data_sources.md).
     """
     reader = PdfReader(str(path))
-    pages_text = []
+    pages_lines: list[list[str]] = []
     for i, page in enumerate(reader.pages):
         text = page.extract_text() or ""
         if not text.strip():
             logger.warning("No extractable text on page %d of %s", i, path)
-        pages_text.append(text)
+        pages_lines.append(text.splitlines())
+
+    num_pages = len(pages_lines)
+    if num_pages > 3:
+        line_counts: dict[str, int] = {}
+        for lines in pages_lines:
+            for line in set(line.strip() for line in lines if line.strip()):
+                line_counts[line] = line_counts.get(line, 0) + 1
+
+        # A line appearing on most pages is a running header/footer, not
+        # article body text — real content rarely repeats verbatim page
+        # after page. Require a minimum length so short common words/section
+        # numbers aren't mistaken for headers.
+        repeat_threshold = max(3, int(num_pages * 0.4))
+        boilerplate_lines = {
+            line
+            for line, count in line_counts.items()
+            if count >= repeat_threshold and len(line) > 8
+        }
+        if boilerplate_lines:
+            logger.info(
+                "Stripping %d repeated header/footer line(s) from %s",
+                len(boilerplate_lines),
+                path,
+            )
+    else:
+        boilerplate_lines = set()
+
+    pages_text = [
+        "\n".join(line for line in lines if line.strip() not in boilerplate_lines)
+        for lines in pages_lines
+    ]
     return "\n\n".join(pages_text)
 
 

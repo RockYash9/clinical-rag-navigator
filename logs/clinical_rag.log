@@ -377,3 +377,41 @@ pypdf.errors.PdfStreamError: Stream has ended unexpectedly
 2026-08-03 16:32:29,761 | INFO     | __main__ | Embedding 522 chunks with sentence-transformers/all-MiniLM-L6-v2 (dimension=384)
 2026-08-03 16:33:28,438 | INFO     | clinical_rag.retrieval.vector_store | Saved index (522 vectors) to data\vector_store\index.faiss and metadata to data\vector_store\index.faiss.chunks.jsonl
 2026-08-03 16:33:28,439 | INFO     | __main__ | Done. Index built with 522 vectors -> data\vector_store\index.faiss
+2026-08-04 16:49:16,735 | INFO     | clinical_rag.pipeline | Loading vector store from data/vector_store/index.faiss
+2026-08-04 16:49:16,906 | INFO     | clinical_rag.pipeline | Vector store loaded: 522 chunks indexed
+2026-08-04 16:49:16,917 | INFO     | clinical_rag.embeddings.embedder | Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-08-04 16:49:19,074 | WARNING  | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-08-04 16:49:45,398 | INFO     | clinical_rag.generation.llm_client | Generating with model=llama3.2:3b (temperature=0.1)
+2026-08-04 16:58:14,119 | INFO     | __main__ | Loaded 7 source(s) from configs/sources.yaml
+2026-08-04 16:58:14,126 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\general_guidelines\who_pen_2020.pdf
+2026-08-04 16:58:50,217 | INFO     | __main__ | Ingested who_pen_2020: 171 chunks
+2026-08-04 16:58:50,220 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-04 16:58:50,567 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 1 of data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-04 16:58:51,025 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 11 of data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-04 16:58:53,164 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 60 of data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-04 16:58:53,169 | INFO     | clinical_rag.ingestion.loaders | Stripping 1 repeated header/footer line(s) from data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-04 16:58:53,178 | INFO     | __main__ | Ingested who_hypertension_2021: 70 chunks
+2026-08-04 16:58:53,192 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\who_emro_diabetes.pdf
+2026-08-04 16:58:53,327 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 0 of data\raw\disease_specific\who_emro_diabetes.pdf
+2026-08-04 16:58:55,341 | INFO     | __main__ | Ingested who_emro_diabetes: 72 chunks
+2026-08-04 16:58:55,350 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-04 16:58:55,668 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 1 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-04 16:58:55,832 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 4 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-04 16:58:55,977 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 8 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-04 16:59:01,953 | INFO     | clinical_rag.ingestion.loaders | Stripping 1 repeated header/footer line(s) from data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-04 16:59:01,986 | INFO     | __main__ | Ingested idf_type2_diabetes_2012: 129 chunks
+2026-08-04 16:59:01,986 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\baynes_2015_classification_diagnosis.pdf
+2026-08-04 16:59:02,867 | INFO     | clinical_rag.ingestion.loaders | Stripping 4 repeated header/footer line(s) from data\raw\disease_specific\baynes_2015_classification_diagnosis.pdf
+2026-08-04 16:59:02,871 | INFO     | __main__ | Ingested baynes_2015_classification_diagnosis: 21 chunks
+2026-08-04 16:59:02,874 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\ohiagu_2021_diabetic_complications.pdf
+2026-08-04 16:59:04,823 | INFO     | clinical_rag.ingestion.loaders | Stripping 1 repeated header/footer line(s) from data\raw\disease_specific\ohiagu_2021_diabetic_complications.pdf
+2026-08-04 16:59:04,828 | INFO     | __main__ | Ingested ohiagu_2021_diabetic_complications: 24 chunks
+2026-08-04 16:59:04,828 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\schroeder_endotext_t2d_pharm_mgmt.html
+2026-08-04 16:59:05,807 | INFO     | __main__ | Ingested schroeder_endotext_t2d_pharm_mgmt: 33 chunks
+2026-08-04 16:59:05,808 | INFO     | __main__ | Done. 520 total chunks written to data\processed\chunks.jsonl
+2026-08-04 17:00:03,342 | INFO     | __main__ | Loaded 520 chunks from data\processed\chunks.jsonl
+2026-08-04 17:00:03,349 | INFO     | clinical_rag.embeddings.embedder | Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-08-04 17:00:04,847 | WARNING  | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-08-04 17:00:14,814 | INFO     | __main__ | Embedding 520 chunks with sentence-transformers/all-MiniLM-L6-v2 (dimension=384)
+2026-08-04 17:01:33,758 | INFO     | clinical_rag.retrieval.vector_store | Saved index (520 vectors) to data\vector_store\index.faiss and metadata to data\vector_store\index.faiss.chunks.jsonl
+2026-08-04 17:01:33,762 | INFO     | __main__ | Done. Index built with 520 vectors -> data\vector_store\index.faiss
