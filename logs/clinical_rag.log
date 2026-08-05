@@ -415,3 +415,14 @@ pypdf.errors.PdfStreamError: Stream has ended unexpectedly
 2026-08-04 17:00:14,814 | INFO     | __main__ | Embedding 520 chunks with sentence-transformers/all-MiniLM-L6-v2 (dimension=384)
 2026-08-04 17:01:33,758 | INFO     | clinical_rag.retrieval.vector_store | Saved index (520 vectors) to data\vector_store\index.faiss and metadata to data\vector_store\index.faiss.chunks.jsonl
 2026-08-04 17:01:33,762 | INFO     | __main__ | Done. Index built with 520 vectors -> data\vector_store\index.faiss
+2026-08-04 17:02:50,909 | INFO     | clinical_rag.pipeline | Loading vector store from data/vector_store/index.faiss
+2026-08-04 17:02:51,725 | INFO     | clinical_rag.pipeline | Vector store loaded: 520 chunks indexed
+2026-08-04 17:02:51,740 | INFO     | clinical_rag.embeddings.embedder | Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-08-04 17:02:53,527 | WARNING  | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-08-04 17:03:50,284 | INFO     | clinical_rag.generation.llm_client | Generating with model=llama3.2:3b (temperature=0.1)
+2026-08-04 17:15:19,079 | INFO     | clinical_rag.pipeline | Loading vector store from data/vector_store/index.faiss
+2026-08-04 17:15:19,162 | INFO     | clinical_rag.pipeline | Vector store loaded: 520 chunks indexed
+2026-08-04 17:15:19,168 | INFO     | clinical_rag.embeddings.embedder | Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-08-04 17:15:20,829 | WARNING  | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-08-04 17:15:27,536 | INFO     | clinical_rag.api.main | Pipeline loaded successfully
+2026-08-04 17:17:49,467 | INFO     | clinical_rag.generation.llm_client | Generating with model=llama3.2:3b (temperature=0.1)

@@ -65,11 +65,11 @@ pytest
 python scripts/cli.py
 ```
 
-**API server**:
+**API server + chat UI**:
 ```bash
 uvicorn clinical_rag.api.main:app --reload
 ```
-Then `POST /query` with `{"question": "..."}`.
+Then open **http://localhost:8000** in a browser for the chat UI, or `POST /query` directly with `{"question": "..."}`.
 
 Both require `scripts/ingest.py` and `scripts/build_index.py` to have been run first.
 

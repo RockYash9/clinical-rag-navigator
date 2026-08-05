@@ -7,6 +7,7 @@ and stays thin; a future CLI or batch-eval script would call it the same way.
 from __future__ import annotations
 
 import logging
+import re
 from pathlib import Path
 
 from clinical_rag.citation.scorer import build_citations, score_confidence
@@ -21,6 +22,25 @@ from clinical_rag.utils.config import load_config
 logger = logging.getLogger(__name__)
 
 DEFAULT_INDEX_PATH = "data/vector_store/index.faiss"
+
+# Small local models occasionally collapse into a near-empty output — e.g.
+# just a citation marker like "[1]" with no actual sentence. This is a
+# generation-layer failure, not a retrieval problem, so it's handled here
+# with a retry rather than by continuing to chase every retrieval-side
+# trigger for it.
+_MIN_ANSWER_LENGTH = 20
+_CITATION_ONLY_RE = re.compile(r"^\s*(\[\d+\]\s*)+\.?\s*$")
+
+FALLBACK_ANSWER = (
+    "The system retrieved relevant passages but couldn't generate a complete "
+    "answer this time. Try rephrasing the question — the sources below are "
+    "still the actual retrieved guideline text and may answer it directly."
+)
+
+
+def _looks_degenerate(answer: str) -> bool:
+    stripped = answer.strip()
+    return len(stripped) < _MIN_ANSWER_LENGTH or bool(_CITATION_ONLY_RE.match(stripped))
 
 
 class RAGPipeline:
@@ -55,6 +75,14 @@ class RAGPipeline:
 
         prompt = build_prompt(question, top_chunks)
         answer = self.llm.generate(prompt)
+
+        if _looks_degenerate(answer):
+            logger.warning("Generation looked degenerate (%r) — retrying with higher temperature", answer)
+            answer = self.llm.generate(prompt, temperature=0.4)
+
+        if _looks_degenerate(answer):
+            logger.warning("Retry also degenerate (%r) — returning fallback message", answer)
+            answer = FALLBACK_ANSWER
 
         return QueryResponse(
             answer=answer,

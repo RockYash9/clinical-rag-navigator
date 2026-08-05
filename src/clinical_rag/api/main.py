@@ -14,6 +14,7 @@ from contextlib import asynccontextmanager
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from clinical_rag.pipeline import RAGPipeline
@@ -78,3 +79,9 @@ def query(request: QueryRequest) -> QueryResponse:
             detail="Pipeline not loaded — run scripts/ingest.py then scripts/build_index.py first",
         )
     return _pipeline.query(request.question)
+
+
+# Mounted last and at the root path, so /health and /query above are matched
+# first. StaticFiles(html=True) serves static/index.html at "/" and any
+# other file (style.css, app.js) at its own filename — this is the chat UI.
+app.mount("/", StaticFiles(directory="static", html=True), name="static")

@@ -34,20 +34,24 @@ class LLMClient:
 
         self.client = ollama.Client(host=self.host)
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, temperature: float | None = None) -> str:
         """Sends `prompt` to the local Ollama model and returns the response text.
 
         Low temperature (0.1 by default) is intentional: this is a factual
         grounding task, not creative writing — we want the model to stick
-        closely to the retrieved context rather than improvise.
+        closely to the retrieved context rather than improvise. An explicit
+        `temperature` override is accepted so a caller retrying after a
+        degenerate output can nudge the model onto a different generation
+        path rather than resampling the same low-temperature distribution.
         """
-        logger.info("Generating with model=%s (temperature=%s)", self.model, self.temperature)
+        effective_temperature = temperature if temperature is not None else self.temperature
+        logger.info("Generating with model=%s (temperature=%s)", self.model, effective_temperature)
         try:
             response = self.client.chat(
                 model=self.model,
                 messages=[{"role": "user", "content": prompt}],
                 options={
-                    "temperature": self.temperature,
+                    "temperature": effective_temperature,
                     "num_predict": self.max_tokens,
                 },
             )
