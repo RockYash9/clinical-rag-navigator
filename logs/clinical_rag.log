@@ -784,3 +784,11 @@ TimeoutError: Text extraction timed out after 180s for gdm_history_prevention_li
 2026-08-08 17:29:57,783 | INFO     | __main__ | Embedding 1553 chunks with sentence-transformers/all-MiniLM-L6-v2 (dimension=384)
 2026-08-08 17:32:36,091 | INFO     | clinical_rag.retrieval.vector_store | Saved index (1553 vectors) to data\vector_store\index.faiss and metadata to data\vector_store\index.faiss.chunks.jsonl
 2026-08-08 17:32:36,092 | INFO     | __main__ | Done. Index built with 1553 vectors -> data\vector_store\index.faiss
+2026-08-08 17:34:36,007 | INFO     | clinical_rag.pipeline | Loading vector store from data/vector_store/index.faiss
+2026-08-08 17:34:36,194 | INFO     | clinical_rag.pipeline | Vector store loaded: 1553 chunks indexed
+2026-08-08 17:34:36,200 | INFO     | clinical_rag.embeddings.embedder | Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-08-08 17:34:37,100 | WARNING  | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-08-08 17:34:42,575 | INFO     | clinical_rag.api.main | Pipeline loaded successfully
+2026-08-08 17:36:46,505 | INFO     | clinical_rag.generation.llm_client | Generating with model=llama3.2:3b (temperature=0.1)
+2026-08-08 17:37:22,645 | INFO     | clinical_rag.generation.llm_client | Generating with model=llama3.2:3b (temperature=0.1)
+2026-08-08 17:39:03,314 | INFO     | clinical_rag.generation.llm_client | Generating with model=llama3.2:3b (temperature=0.1)

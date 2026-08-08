@@ -72,3 +72,47 @@ def test_rerank_backfills_when_diversity_unavailable() -> None:
     ]
     result = rerank("chunk", candidates, top_k=4, max_per_source=2)
     assert len(result) == 4
+
+
+class _FakeCrossEncoder:
+    """Minimal stand-in for CrossEncoderReranker — returns pre-set scores
+    per text so tests never need to load the real model."""
+
+    def __init__(self, score_map: dict[str, float]):
+        self.score_map = score_map
+
+    def score(self, query: str, texts: list[str]) -> list[float]:
+        return [self.score_map[t] for t in texts]
+
+
+def test_rerank_with_cross_encoder_overrides_semantic_order() -> None:
+    # A chunk with a high semantic score but low actual relevance (per the
+    # cross-encoder) should be correctly demoted below a lower-semantic-score
+    # chunk that the cross-encoder judges more relevant.
+    chunk_a = _make_chunk("a", "metformin dosing guidance")
+    chunk_b = _make_chunk("b", "generic diabetes overview")
+
+    candidates = [(chunk_a, 0.5), (chunk_b, 0.9)]  # b has the higher semantic score
+    fake_ce = _FakeCrossEncoder({
+        "metformin dosing guidance": 8.0,
+        "generic diabetes overview": -2.0,
+    })
+
+    result = rerank("metformin", candidates, top_k=2, cross_encoder=fake_ce)
+    assert [c.chunk_id for c, _ in result] == ["a", "b"]
+
+
+def test_rerank_with_cross_encoder_still_applies_diversity_cap() -> None:
+    chunks = [
+        (_make_chunk("a1", "text a1", source_id="src_a"), 0.5),
+        (_make_chunk("a2", "text a2", source_id="src_a"), 0.5),
+        (_make_chunk("a3", "text a3", source_id="src_a"), 0.5),
+        (_make_chunk("b1", "text b1", source_id="src_b"), 0.5),
+    ]
+    fake_ce = _FakeCrossEncoder({
+        "text a1": 9.0, "text a2": 8.0, "text a3": 7.0, "text b1": 6.0,
+    })
+    result = rerank("query", chunks, top_k=3, max_per_source=2, cross_encoder=fake_ce)
+    source_ids = [c.source_id for c, _ in result]
+    assert source_ids.count("src_a") <= 2
+    assert "src_b" in source_ids

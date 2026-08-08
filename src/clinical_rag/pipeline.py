@@ -57,6 +57,18 @@ class RAGPipeline:
         self.embedder = Embedder()
         self.llm = LLMClient()
 
+        self.cross_encoder = None
+        if retrieval_config.get("use_cross_encoder", False):
+            try:
+                from clinical_rag.retrieval.cross_encoder import CrossEncoderReranker
+
+                self.cross_encoder = CrossEncoderReranker()
+            except Exception:
+                logger.exception(
+                    "Failed to load cross-encoder reranker — falling back to the "
+                    "lexical reranker for this session"
+                )
+
     def query(self, question: str) -> QueryResponse:
         query_vector = self.embedder.embed_query(question)
         candidates = self.store.search(query_vector, top_k=self.top_k)
@@ -69,7 +81,11 @@ class RAGPipeline:
             )
 
         reranked = rerank(
-            question, candidates, top_k=self.top_k_after_rerank, max_per_source=self.max_per_source
+            question,
+            candidates,
+            top_k=self.top_k_after_rerank,
+            max_per_source=self.max_per_source,
+            cross_encoder=self.cross_encoder,
         )
         top_chunks = [chunk for chunk, _score in reranked]
 
