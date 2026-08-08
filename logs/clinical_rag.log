@@ -695,3 +695,92 @@ TimeoutError: Text extraction timed out after 180s for gdm_history_prevention_li
 2026-08-08 11:34:28,304 | INFO     | __main__ | Embedding 904 chunks with sentence-transformers/all-MiniLM-L6-v2 (dimension=384)
 2026-08-08 11:35:18,551 | INFO     | clinical_rag.retrieval.vector_store | Saved index (904 vectors) to data\vector_store\index.faiss and metadata to data\vector_store\index.faiss.chunks.jsonl
 2026-08-08 11:35:18,552 | INFO     | __main__ | Done. Index built with 904 vectors -> data\vector_store\index.faiss
+2026-08-08 11:37:52,553 | INFO     | clinical_rag.pipeline | Loading vector store from data/vector_store/index.faiss
+2026-08-08 11:37:52,749 | INFO     | clinical_rag.pipeline | Vector store loaded: 904 chunks indexed
+2026-08-08 11:37:52,757 | INFO     | clinical_rag.embeddings.embedder | Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-08-08 11:37:53,662 | WARNING  | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-08-08 11:37:59,020 | INFO     | clinical_rag.api.main | Pipeline loaded successfully
+2026-08-08 11:38:21,162 | INFO     | clinical_rag.generation.llm_client | Generating with model=llama3.2:3b (temperature=0.1)
+2026-08-08 11:40:21,224 | INFO     | clinical_rag.generation.llm_client | Generating with model=llama3.2:3b (temperature=0.1)
+2026-08-08 17:24:59,315 | INFO     | __main__ | Loaded 37 source(s) from configs/sources.yaml
+2026-08-08 17:24:59,315 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\general_guidelines\who_pen_2020.pdf
+2026-08-08 17:25:16,810 | INFO     | __main__ | Ingested who_pen_2020: 171 chunks
+2026-08-08 17:25:16,810 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-08 17:25:19,116 | INFO     | __main__ | Ingested who_hypertension_2021: 70 chunks
+2026-08-08 17:25:19,118 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\who_emro_diabetes.pdf
+2026-08-08 17:25:21,008 | INFO     | __main__ | Ingested who_emro_diabetes: 72 chunks
+2026-08-08 17:25:21,010 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-08 17:25:24,772 | INFO     | __main__ | Ingested idf_type2_diabetes_2012: 129 chunks
+2026-08-08 17:25:24,774 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\baynes_2015_classification_diagnosis.pdf
+2026-08-08 17:25:26,281 | INFO     | __main__ | Ingested baynes_2015_classification_diagnosis: 21 chunks
+2026-08-08 17:25:26,282 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\ohiagu_2021_diabetic_complications.pdf
+2026-08-08 17:25:28,872 | INFO     | __main__ | Ingested ohiagu_2021_diabetic_complications: 23 chunks
+2026-08-08 17:25:28,874 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\schroeder_endotext_t2d_pharm_mgmt.html
+2026-08-08 17:25:30,044 | INFO     | __main__ | Ingested schroeder_endotext_t2d_pharm_mgmt: 32 chunks
+2026-08-08 17:25:30,044 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\cavalli_2025_t1dm_historical_review.pdf
+2026-08-08 17:25:31,977 | INFO     | __main__ | Ingested cavalli_2025_t1dm_historical_review: 29 chunks
+2026-08-08 17:25:31,977 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\yahaya_2020_t1dm_genes_pathogenesis.pdf
+2026-08-08 17:25:33,785 | INFO     | __main__ | Ingested yahaya_2020_t1dm_genes_pathogenesis: 20 chunks
+2026-08-08 17:25:33,785 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\gdm_pathophysiology_2018.pdf
+2026-08-08 17:25:36,108 | INFO     | __main__ | Ingested gdm_pathophysiology_2018: 39 chunks
+2026-08-08 17:25:36,108 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\gdm_molecular_clinical_2025.pdf
+2026-08-08 17:25:38,619 | INFO     | __main__ | Ingested gdm_molecular_clinical_2025: 38 chunks
+2026-08-08 17:25:38,621 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\kulkarni_2024_retinopathy_nephropathy_neuropathy.pdf
+2026-08-08 17:25:44,240 | INFO     | __main__ | Ingested kulkarni_2024_retinopathy_nephropathy_neuropathy: 27 chunks
+2026-08-08 17:25:44,242 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\zakir_2023_cardiovascular_complications.pdf
+2026-08-08 17:25:49,299 | INFO     | __main__ | Ingested zakir_2023_cardiovascular_complications: 32 chunks
+2026-08-08 17:25:49,301 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\huang_2025_t2dm_global_burden.pdf
+2026-08-08 17:25:50,917 | INFO     | __main__ | Ingested huang_2025_t2dm_global_burden: 26 chunks
+2026-08-08 17:25:50,917 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\glucose_monitoring_review.pdf
+2026-08-08 17:25:54,957 | INFO     | __main__ | Ingested glucose_monitoring_review: 97 chunks
+2026-08-08 17:25:54,965 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\uusitupa_2019_t2dm_prevention_lifestyle.pdf
+2026-08-08 17:25:57,093 | INFO     | __main__ | Ingested uusitupa_2019_t2dm_prevention_lifestyle: 43 chunks
+2026-08-08 17:25:57,093 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\gdm_history_prevention_lifestyle.pdf
+2026-08-08 17:25:58,951 | INFO     | __main__ | Ingested gdm_history_prevention_lifestyle: 35 chunks
+2026-08-08 17:25:58,953 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_renal_injury_2026.pdf
+2026-08-08 17:26:01,432 | INFO     | __main__ | Ingested htn_renal_injury_2026: 61 chunks
+2026-08-08 17:26:01,444 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_heart_failure_2024.pdf
+2026-08-08 17:26:03,503 | INFO     | __main__ | Ingested htn_heart_failure_2024: 35 chunks
+2026-08-08 17:26:03,520 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_essential_pathogenesis_2022.pdf
+2026-08-08 17:26:05,282 | INFO     | __main__ | Ingested htn_essential_pathogenesis_2022: 28 chunks
+2026-08-08 17:26:05,292 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_heart_disease_part1_2023.pdf
+2026-08-08 17:26:06,988 | INFO     | __main__ | Ingested htn_heart_disease_part1_2023: 31 chunks
+2026-08-08 17:26:06,990 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_resistant_rethinking_2022.pdf
+2026-08-08 17:26:08,453 | INFO     | __main__ | Ingested htn_resistant_rethinking_2022: 23 chunks
+2026-08-08 17:26:08,453 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_resistant_advances_2023.pdf
+2026-08-08 17:26:10,283 | INFO     | __main__ | Ingested htn_resistant_advances_2023: 31 chunks
+2026-08-08 17:26:10,295 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_crisis_cerebrovascular_2021.pdf
+2026-08-08 17:26:12,481 | INFO     | __main__ | Ingested htn_crisis_cerebrovascular_2021: 56 chunks
+2026-08-08 17:26:12,481 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_crisis_pediatric_2022.pdf
+2026-08-08 17:26:14,259 | INFO     | __main__ | Ingested htn_crisis_pediatric_2022: 16 chunks
+2026-08-08 17:26:14,269 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\preeclampsia_pathophysiology_2023.pdf
+2026-08-08 17:26:16,301 | INFO     | __main__ | Ingested preeclampsia_pathophysiology_2023: 26 chunks
+2026-08-08 17:26:16,301 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_pregnancy_comprehensive_review.pdf
+2026-08-08 17:26:18,614 | INFO     | __main__ | Ingested htn_pregnancy_comprehensive_review: 52 chunks
+2026-08-08 17:26:18,624 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_salt_intake_bp_2023.pdf
+2026-08-08 17:26:20,538 | INFO     | __main__ | Ingested htn_salt_intake_bp_2023: 26 chunks
+2026-08-08 17:26:20,538 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_continuing_public_health_issue_2025.pdf
+2026-08-08 17:26:22,414 | INFO     | __main__ | Ingested htn_continuing_public_health_issue_2025: 33 chunks
+2026-08-08 17:26:22,416 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_esc_guidelines_update_2025.pdf
+2026-08-08 17:26:24,279 | INFO     | __main__ | Ingested htn_esc_guidelines_update_2025: 22 chunks
+2026-08-08 17:26:24,281 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_abpm_pediatric_standard_care_2017.pdf
+2026-08-08 17:26:26,123 | INFO     | __main__ | Ingested htn_abpm_pediatric_standard_care_2017: 27 chunks
+2026-08-08 17:26:26,126 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_ckd_management_2025.pdf
+2026-08-08 17:26:28,514 | INFO     | __main__ | Ingested htn_ckd_management_2025: 37 chunks
+2026-08-08 17:26:28,525 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_drug_class_comparisons_2025.pdf
+2026-08-08 17:26:30,281 | INFO     | __main__ | Ingested htn_drug_class_comparisons_2025: 25 chunks
+2026-08-08 17:26:30,284 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\raas_end_organ_damage.pdf
+2026-08-08 17:26:32,225 | INFO     | __main__ | Ingested raas_end_organ_damage: 33 chunks
+2026-08-08 17:26:32,226 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\raas_developmental_origins_2021.pdf
+2026-08-08 17:26:34,967 | INFO     | __main__ | Ingested raas_developmental_origins_2021: 41 chunks
+2026-08-08 17:26:34,969 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_white_coat_masked_coronary.pdf
+2026-08-08 17:26:37,981 | INFO     | __main__ | Ingested htn_white_coat_masked_coronary: 24 chunks
+2026-08-08 17:26:37,983 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\htn_cardiorenal_signature_2026.pdf
+2026-08-08 17:26:41,272 | INFO     | __main__ | Ingested htn_cardiorenal_signature_2026: 22 chunks
+2026-08-08 17:26:41,273 | INFO     | __main__ | Done. 1553 total chunks written to data\processed\chunks.jsonl
+2026-08-08 17:29:50,973 | INFO     | __main__ | Loaded 1553 chunks from data\processed\chunks.jsonl
+2026-08-08 17:29:50,983 | INFO     | clinical_rag.embeddings.embedder | Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-08-08 17:29:52,071 | WARNING  | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-08-08 17:29:57,783 | INFO     | __main__ | Embedding 1553 chunks with sentence-transformers/all-MiniLM-L6-v2 (dimension=384)
+2026-08-08 17:32:36,091 | INFO     | clinical_rag.retrieval.vector_store | Saved index (1553 vectors) to data\vector_store\index.faiss and metadata to data\vector_store\index.faiss.chunks.jsonl
+2026-08-08 17:32:36,092 | INFO     | __main__ | Done. Index built with 1553 vectors -> data\vector_store\index.faiss

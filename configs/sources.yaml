@@ -183,3 +183,207 @@ sources:
     url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10649749/"
     license: "CC BY 4.0"
     manual_download: true
+
+  # --- Manual-download batch: hypertension research papers (20).
+  # Same pattern as the diabetes batch above — download in a browser, save
+  # to data/raw/disease_specific/<id>.pdf, then run scripts/ingest.py.
+
+  - id: htn_renal_injury_2026
+    title: "Hypertension-Induced Renal Injury: From Pathophysiology to Therapeutic Perspectives"
+    tier: disease_specific
+    condition: hypertension
+    organization: "MDPI (2026)"
+    year: 2026
+    url: "https://www.mdpi.com/2227-9059/14/3/595/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_heart_failure_2024
+    title: "Hypertension and Heart Failure: From Pathophysiology to Treatment"
+    tier: disease_specific
+    condition: hypertension
+    organization: "International Journal of Molecular Sciences / MDPI (2024)"
+    year: 2024
+    url: "https://www.mdpi.com/1422-0067/25/12/6661/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_essential_pathogenesis_2022
+    title: "Advances in Pathogenesis and Treatment of Essential Hypertension"
+    tier: disease_specific
+    condition: hypertension
+    organization: "Frontiers in Cardiovascular Medicine (2022)"
+    year: 2022
+    url: "https://www.frontiersin.org/journals/cardiovascular-medicine/articles/10.3389/fcvm.2022.1003852/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_heart_disease_part1_2023
+    title: "Hypertensive Heart Disease: A Narrative Review Series - Part 1: Pathophysiology and Microstructural Changes"
+    tier: disease_specific
+    condition: hypertension
+    organization: "Journal of Clinical Medicine / MDPI (2023)"
+    year: 2023
+    url: "https://www.mdpi.com/2077-0383/12/7/2606/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_resistant_rethinking_2022
+    title: "Rethinking Resistant Hypertension"
+    tier: disease_specific
+    condition: hypertension
+    organization: "Journal of Clinical Medicine / MDPI (2022)"
+    year: 2022
+    url: "https://www.mdpi.com/2077-0383/11/5/1455/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_resistant_advances_2023
+    title: "Advances in the Pathogenesis and Treatment of Resistant Hypertension"
+    tier: disease_specific
+    condition: hypertension
+    organization: "International Journal of Molecular Sciences / MDPI (2023)"
+    year: 2023
+    url: "https://www.mdpi.com/1422-0067/24/16/12911/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_crisis_cerebrovascular_2021
+    title: "Hypertensive Crisis in Acute Cerebrovascular Diseases Presenting at the Emergency Department: A Narrative Review"
+    tier: disease_specific
+    condition: hypertension
+    organization: "MDPI (2021)"
+    year: 2021
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7825668/"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_crisis_pediatric_2022
+    title: "Management of Hypertensive Crises in Children: A Review of the Recent Literature"
+    tier: disease_specific
+    condition: hypertension
+    organization: "Frontiers in Pediatrics (2022)"
+    year: 2022
+    url: "https://www.frontiersin.org/journals/pediatrics/articles/10.3389/fped.2022.880678/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: preeclampsia_pathophysiology_2023
+    title: "Preeclampsia Pathophysiology and Adverse Outcomes During Pregnancy and Postpartum"
+    tier: disease_specific
+    condition: hypertension
+    organization: "Frontiers in Medicine (2023)"
+    year: 2023
+    url: "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2023.1144170/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_pregnancy_comprehensive_review
+    title: "A Comprehensive Review of Hypertension in Pregnancy"
+    tier: disease_specific
+    condition: hypertension
+    organization: "Journal of Pregnancy (PMC)"
+    year: null
+    url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3366228/"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_salt_intake_bp_2023
+    title: "Salt Intake and Blood Pressure: A Review"
+    tier: disease_specific
+    condition: hypertension
+    organization: "Frontiers in Public Health (2023)"
+    year: 2023
+    url: "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2023.1125608/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_continuing_public_health_issue_2025
+    title: "Hypertension: A Continuing Public Healthcare Issue"
+    tier: disease_specific
+    condition: hypertension
+    organization: "MDPI (2025)"
+    year: 2025
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11720251/"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_esc_guidelines_update_2025
+    title: "Key Updates to the 2024 ESC Hypertension Guidelines and Future Perspectives"
+    tier: disease_specific
+    condition: hypertension
+    organization: "MDPI (2025)"
+    year: 2025
+    url: "https://www.mdpi.com/1648-9144/61/2/193/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_abpm_pediatric_standard_care_2017
+    title: "The Use of Ambulatory Blood Pressure Monitoring As Standard of Care in Pediatrics"
+    tier: disease_specific
+    condition: hypertension
+    organization: "Frontiers in Pediatrics (2017)"
+    year: 2017
+    url: "https://www.frontiersin.org/journals/pediatrics/articles/10.3389/fped.2017.00153/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_ckd_management_2025
+    title: "Management of Hypertension in Chronic Kidney Disease: Current Perspectives and Therapeutic Strategies"
+    tier: disease_specific
+    condition: hypertension
+    organization: "Frontiers in Medicine (2025)"
+    year: 2025
+    url: "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2025.1630160/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_drug_class_comparisons_2025
+    title: "Maximizing Blood Pressure Lowering Effects: A Review of Drug Class Comparisons and Rationale for Combination Approaches"
+    tier: disease_specific
+    condition: hypertension
+    organization: "Frontiers in Cardiovascular Medicine (2025)"
+    year: 2025
+    url: "https://www.frontiersin.org/journals/cardiovascular-medicine/articles/10.3389/fcvm.2025.1656818/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: raas_end_organ_damage
+    title: "Role of the Renin-Angiotensin-Aldosterone System Beyond Blood Pressure Regulation: Molecular and Cellular Mechanisms Involved in End-Organ Damage During Arterial Hypertension"
+    tier: disease_specific
+    condition: hypertension
+    organization: "MDPI (PMC)"
+    year: null
+    url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4964362/"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: raas_developmental_origins_2021
+    title: "Targeting the Renin-Angiotensin-Aldosterone System to Prevent Hypertension and Kidney Disease of Developmental Origins"
+    tier: disease_specific
+    condition: hypertension
+    organization: "International Journal of Molecular Sciences / MDPI (2021)"
+    year: 2021
+    url: "https://www.mdpi.com/1422-0067/22/5/2298/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_white_coat_masked_coronary
+    title: "Effects of White-Coat, Masked and Sustained Hypertension on Coronary Artery Stenosis and Cardiac Arrhythmia"
+    tier: disease_specific
+    condition: hypertension
+    organization: "PMC"
+    year: null
+    url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8076024/"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: htn_cardiorenal_signature_2026
+    title: "Hypertension: A Proximal Clinical Signature and Promoter of Early Cardiorenal Disease?"
+    tier: disease_specific
+    condition: hypertension
+    organization: "Journal of CardioRenal Medicine / MDPI (2026)"
+    year: 2026
+    url: "https://www.mdpi.com/3042-6987/2/1/2/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
