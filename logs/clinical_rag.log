@@ -426,3 +426,272 @@ pypdf.errors.PdfStreamError: Stream has ended unexpectedly
 2026-08-04 17:15:20,829 | WARNING  | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 2026-08-04 17:15:27,536 | INFO     | clinical_rag.api.main | Pipeline loaded successfully
 2026-08-04 17:17:49,467 | INFO     | clinical_rag.generation.llm_client | Generating with model=llama3.2:3b (temperature=0.1)
+2026-08-05 11:50:48,598 | INFO     | clinical_rag.pipeline | Loading vector store from data/vector_store/index.faiss
+2026-08-05 11:50:48,683 | INFO     | clinical_rag.pipeline | Vector store loaded: 520 chunks indexed
+2026-08-05 11:50:48,688 | INFO     | clinical_rag.embeddings.embedder | Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-08-05 11:50:49,783 | WARNING  | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-08-05 11:50:55,439 | INFO     | clinical_rag.api.main | Pipeline loaded successfully
+2026-08-05 11:51:19,780 | INFO     | clinical_rag.generation.llm_client | Generating with model=llama3.2:3b (temperature=0.1)
+2026-08-05 11:51:40,527 | WARNING  | clinical_rag.pipeline | Generation looked degenerate ('[1]') — retrying with higher temperature
+2026-08-05 11:51:40,528 | INFO     | clinical_rag.generation.llm_client | Generating with model=llama3.2:3b (temperature=0.4)
+2026-08-05 11:51:41,205 | WARNING  | clinical_rag.pipeline | Retry also degenerate ('[1]') — returning fallback message
+2026-08-05 11:51:55,923 | INFO     | clinical_rag.generation.llm_client | Generating with model=llama3.2:3b (temperature=0.1)
+2026-08-06 17:00:32,523 | INFO     | __main__ | Loaded 17 source(s) from configs/sources.yaml
+2026-08-06 17:00:32,530 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\general_guidelines\who_pen_2020.pdf
+2026-08-06 17:00:57,799 | INFO     | __main__ | Ingested who_pen_2020: 171 chunks
+2026-08-06 17:00:57,802 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-06 17:00:58,002 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 1 of data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-06 17:00:58,423 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 11 of data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-06 17:01:01,476 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 60 of data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-06 17:01:01,480 | INFO     | clinical_rag.ingestion.loaders | Stripping 1 repeated header/footer line(s) from data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-06 17:01:01,497 | INFO     | __main__ | Ingested who_hypertension_2021: 70 chunks
+2026-08-06 17:01:01,499 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\who_emro_diabetes.pdf
+2026-08-06 17:01:01,581 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 0 of data\raw\disease_specific\who_emro_diabetes.pdf
+2026-08-06 17:01:03,175 | INFO     | __main__ | Ingested who_emro_diabetes: 72 chunks
+2026-08-06 17:01:03,177 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-06 17:01:03,395 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 1 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-06 17:01:03,504 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 4 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-06 17:01:03,606 | WARNING  | clinical_rag.ingestion.loaders | No extractable text on page 8 of data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-06 17:01:08,339 | INFO     | clinical_rag.ingestion.loaders | Stripping 1 repeated header/footer line(s) from data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-06 17:01:08,359 | INFO     | __main__ | Ingested idf_type2_diabetes_2012: 129 chunks
+2026-08-06 17:01:08,361 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\baynes_2015_classification_diagnosis.pdf
+2026-08-06 17:01:09,093 | INFO     | clinical_rag.ingestion.loaders | Stripping 4 repeated header/footer line(s) from data\raw\disease_specific\baynes_2015_classification_diagnosis.pdf
+2026-08-06 17:01:09,097 | INFO     | __main__ | Ingested baynes_2015_classification_diagnosis: 21 chunks
+2026-08-06 17:01:09,099 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\ohiagu_2021_diabetic_complications.pdf
+2026-08-06 17:01:11,151 | INFO     | clinical_rag.ingestion.loaders | Stripping 1 repeated header/footer line(s) from data\raw\disease_specific\ohiagu_2021_diabetic_complications.pdf
+2026-08-06 17:01:11,157 | INFO     | __main__ | Ingested ohiagu_2021_diabetic_complications: 23 chunks
+2026-08-06 17:01:11,159 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\schroeder_endotext_t2d_pharm_mgmt.html
+2026-08-06 17:01:11,309 | INFO     | __main__ | Ingested schroeder_endotext_t2d_pharm_mgmt: 32 chunks
+2026-08-06 17:01:11,311 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\cavalli_2025_t1dm_historical_review.pdf
+2026-08-06 17:01:12,500 | INFO     | __main__ | Ingested cavalli_2025_t1dm_historical_review: 29 chunks
+2026-08-06 17:01:12,502 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\yahaya_2020_t1dm_genes_pathogenesis.pdf
+2026-08-06 17:01:13,491 | INFO     | clinical_rag.ingestion.loaders | Stripping 5 repeated header/footer line(s) from data\raw\disease_specific\yahaya_2020_t1dm_genes_pathogenesis.pdf
+2026-08-06 17:01:13,494 | INFO     | __main__ | Ingested yahaya_2020_t1dm_genes_pathogenesis: 20 chunks
+2026-08-06 17:01:13,496 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\gdm_pathophysiology_2018.pdf
+2026-08-06 17:01:16,254 | INFO     | __main__ | Ingested gdm_pathophysiology_2018: 39 chunks
+2026-08-06 17:01:16,255 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\gdm_molecular_clinical_2025.pdf
+2026-08-06 17:01:18,609 | INFO     | __main__ | Ingested gdm_molecular_clinical_2025: 38 chunks
+2026-08-06 17:01:18,611 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\kulkarni_2024_retinopathy_nephropathy_neuropathy.pdf
+2026-08-06 17:01:26,816 | INFO     | clinical_rag.ingestion.loaders | Stripping 2 repeated header/footer line(s) from data\raw\disease_specific\kulkarni_2024_retinopathy_nephropathy_neuropathy.pdf
+2026-08-06 17:01:26,824 | INFO     | __main__ | Ingested kulkarni_2024_retinopathy_nephropathy_neuropathy: 27 chunks
+2026-08-06 17:01:26,827 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\zakir_2023_cardiovascular_complications.pdf
+2026-08-06 17:01:32,245 | INFO     | clinical_rag.ingestion.loaders | Stripping 2 repeated header/footer line(s) from data\raw\disease_specific\zakir_2023_cardiovascular_complications.pdf
+2026-08-06 17:01:32,250 | INFO     | __main__ | Ingested zakir_2023_cardiovascular_complications: 32 chunks
+2026-08-06 17:01:32,253 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\huang_2025_t2dm_global_burden.pdf
+2026-08-06 17:01:33,029 | INFO     | clinical_rag.ingestion.loaders | Stripping 1 repeated header/footer line(s) from data\raw\disease_specific\huang_2025_t2dm_global_burden.pdf
+2026-08-06 17:01:33,034 | INFO     | __main__ | Ingested huang_2025_t2dm_global_burden: 26 chunks
+2026-08-06 17:01:33,036 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\glucose_monitoring_review.pdf
+2026-08-06 17:07:58,840 | INFO     | __main__ | Loaded 17 source(s) from configs/sources.yaml
+2026-08-06 17:07:58,843 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\general_guidelines\who_pen_2020.pdf
+2026-08-06 17:10:58,910 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for who_pen_2020 exceeded 180s — terminating
+2026-08-06 17:10:58,924 | ERROR    | __main__ | Failed to ingest source who_pen_2020 — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for who_pen_2020 — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:10:58,930 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-06 17:13:58,960 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for who_hypertension_2021 exceeded 180s — terminating
+2026-08-06 17:13:58,970 | ERROR    | __main__ | Failed to ingest source who_hypertension_2021 — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for who_hypertension_2021 — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:13:58,974 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\who_emro_diabetes.pdf
+2026-08-06 17:16:59,004 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for who_emro_diabetes exceeded 180s — terminating
+2026-08-06 17:16:59,013 | ERROR    | __main__ | Failed to ingest source who_emro_diabetes — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for who_emro_diabetes — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:16:59,015 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-06 17:19:59,042 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for idf_type2_diabetes_2012 exceeded 180s — terminating
+2026-08-06 17:19:59,062 | ERROR    | __main__ | Failed to ingest source idf_type2_diabetes_2012 — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for idf_type2_diabetes_2012 — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:19:59,067 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\baynes_2015_classification_diagnosis.pdf
+2026-08-06 17:22:59,101 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for baynes_2015_classification_diagnosis exceeded 180s — terminating
+2026-08-06 17:22:59,120 | ERROR    | __main__ | Failed to ingest source baynes_2015_classification_diagnosis — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for baynes_2015_classification_diagnosis — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:22:59,127 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\ohiagu_2021_diabetic_complications.pdf
+2026-08-06 17:25:59,154 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for ohiagu_2021_diabetic_complications exceeded 180s — terminating
+2026-08-06 17:25:59,163 | ERROR    | __main__ | Failed to ingest source ohiagu_2021_diabetic_complications — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for ohiagu_2021_diabetic_complications — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:25:59,169 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\schroeder_endotext_t2d_pharm_mgmt.html
+2026-08-06 17:28:59,191 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for schroeder_endotext_t2d_pharm_mgmt exceeded 180s — terminating
+2026-08-06 17:28:59,201 | ERROR    | __main__ | Failed to ingest source schroeder_endotext_t2d_pharm_mgmt — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for schroeder_endotext_t2d_pharm_mgmt — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:28:59,217 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\cavalli_2025_t1dm_historical_review.pdf
+2026-08-06 17:31:59,251 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for cavalli_2025_t1dm_historical_review exceeded 180s — terminating
+2026-08-06 17:31:59,260 | ERROR    | __main__ | Failed to ingest source cavalli_2025_t1dm_historical_review — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for cavalli_2025_t1dm_historical_review — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:31:59,265 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\yahaya_2020_t1dm_genes_pathogenesis.pdf
+2026-08-06 17:34:59,300 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for yahaya_2020_t1dm_genes_pathogenesis exceeded 180s — terminating
+2026-08-06 17:34:59,310 | ERROR    | __main__ | Failed to ingest source yahaya_2020_t1dm_genes_pathogenesis — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for yahaya_2020_t1dm_genes_pathogenesis — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:34:59,327 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\gdm_pathophysiology_2018.pdf
+2026-08-06 17:37:59,362 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for gdm_pathophysiology_2018 exceeded 180s — terminating
+2026-08-06 17:37:59,372 | ERROR    | __main__ | Failed to ingest source gdm_pathophysiology_2018 — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for gdm_pathophysiology_2018 — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:37:59,377 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\gdm_molecular_clinical_2025.pdf
+2026-08-06 17:40:59,395 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for gdm_molecular_clinical_2025 exceeded 180s — terminating
+2026-08-06 17:40:59,405 | ERROR    | __main__ | Failed to ingest source gdm_molecular_clinical_2025 — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for gdm_molecular_clinical_2025 — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:40:59,412 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\kulkarni_2024_retinopathy_nephropathy_neuropathy.pdf
+2026-08-06 17:43:59,433 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for kulkarni_2024_retinopathy_nephropathy_neuropathy exceeded 180s — terminating
+2026-08-06 17:43:59,453 | ERROR    | __main__ | Failed to ingest source kulkarni_2024_retinopathy_nephropathy_neuropathy — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for kulkarni_2024_retinopathy_nephropathy_neuropathy — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:43:59,463 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\zakir_2023_cardiovascular_complications.pdf
+2026-08-06 17:46:59,481 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for zakir_2023_cardiovascular_complications exceeded 180s — terminating
+2026-08-06 17:46:59,493 | ERROR    | __main__ | Failed to ingest source zakir_2023_cardiovascular_complications — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for zakir_2023_cardiovascular_complications — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:46:59,502 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\huang_2025_t2dm_global_burden.pdf
+2026-08-06 17:49:59,522 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for huang_2025_t2dm_global_burden exceeded 180s — terminating
+2026-08-06 17:49:59,537 | ERROR    | __main__ | Failed to ingest source huang_2025_t2dm_global_burden — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for huang_2025_t2dm_global_burden — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:49:59,552 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\glucose_monitoring_review.pdf
+2026-08-06 17:52:59,612 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for glucose_monitoring_review exceeded 180s — terminating
+2026-08-06 17:52:59,633 | ERROR    | __main__ | Failed to ingest source glucose_monitoring_review — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for glucose_monitoring_review — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:52:59,640 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\uusitupa_2019_t2dm_prevention_lifestyle.pdf
+2026-08-06 17:55:59,668 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for uusitupa_2019_t2dm_prevention_lifestyle exceeded 180s — terminating
+2026-08-06 17:55:59,685 | ERROR    | __main__ | Failed to ingest source uusitupa_2019_t2dm_prevention_lifestyle — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for uusitupa_2019_t2dm_prevention_lifestyle — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:55:59,691 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\gdm_history_prevention_lifestyle.pdf
+2026-08-06 17:58:59,713 | WARNING  | clinical_rag.ingestion.timeout_guard | Extraction for gdm_history_prevention_lifestyle exceeded 180s — terminating
+2026-08-06 17:58:59,728 | ERROR    | __main__ | Failed to ingest source gdm_history_prevention_lifestyle — skipping
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\scripts\ingest.py", line 38, in main
+    text = extract_text_with_timeout(source, local_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\clinical-rag-navigator\src\clinical_rag\ingestion\timeout_guard.py", line 57, in extract_text_with_timeout
+    raise TimeoutError(
+TimeoutError: Text extraction timed out after 180s for gdm_history_prevention_lifestyle — the file may be malformed or unusually complex (e.g. many embedded images/forms). Consider skipping this source in sources.yaml.
+2026-08-06 17:58:59,738 | INFO     | __main__ | Done. 0 total chunks written to data\processed\chunks.jsonl
+2026-08-08 11:30:17,483 | INFO     | __main__ | Loaded 17 source(s) from configs/sources.yaml
+2026-08-08 11:30:17,492 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\general_guidelines\who_pen_2020.pdf
+2026-08-08 11:30:48,870 | INFO     | __main__ | Ingested who_pen_2020: 171 chunks
+2026-08-08 11:30:48,873 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\who_hypertension_2021.pdf
+2026-08-08 11:30:52,508 | INFO     | __main__ | Ingested who_hypertension_2021: 70 chunks
+2026-08-08 11:30:52,510 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\who_emro_diabetes.pdf
+2026-08-08 11:30:55,317 | INFO     | __main__ | Ingested who_emro_diabetes: 72 chunks
+2026-08-08 11:30:55,319 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\idf_type2_diabetes_2012.pdf
+2026-08-08 11:31:03,583 | INFO     | __main__ | Ingested idf_type2_diabetes_2012: 129 chunks
+2026-08-08 11:31:03,742 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\baynes_2015_classification_diagnosis.pdf
+2026-08-08 11:31:08,361 | INFO     | __main__ | Ingested baynes_2015_classification_diagnosis: 21 chunks
+2026-08-08 11:31:08,375 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\ohiagu_2021_diabetic_complications.pdf
+2026-08-08 11:31:13,021 | INFO     | __main__ | Ingested ohiagu_2021_diabetic_complications: 23 chunks
+2026-08-08 11:31:13,023 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\schroeder_endotext_t2d_pharm_mgmt.html
+2026-08-08 11:31:15,201 | INFO     | __main__ | Ingested schroeder_endotext_t2d_pharm_mgmt: 32 chunks
+2026-08-08 11:31:15,204 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\cavalli_2025_t1dm_historical_review.pdf
+2026-08-08 11:31:19,143 | INFO     | __main__ | Ingested cavalli_2025_t1dm_historical_review: 29 chunks
+2026-08-08 11:31:19,146 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\yahaya_2020_t1dm_genes_pathogenesis.pdf
+2026-08-08 11:31:24,013 | INFO     | __main__ | Ingested yahaya_2020_t1dm_genes_pathogenesis: 20 chunks
+2026-08-08 11:31:24,022 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\gdm_pathophysiology_2018.pdf
+2026-08-08 11:31:30,166 | INFO     | __main__ | Ingested gdm_pathophysiology_2018: 39 chunks
+2026-08-08 11:31:30,172 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\gdm_molecular_clinical_2025.pdf
+2026-08-08 11:31:36,614 | INFO     | __main__ | Ingested gdm_molecular_clinical_2025: 38 chunks
+2026-08-08 11:31:36,616 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\kulkarni_2024_retinopathy_nephropathy_neuropathy.pdf
+2026-08-08 11:31:44,636 | INFO     | __main__ | Ingested kulkarni_2024_retinopathy_nephropathy_neuropathy: 27 chunks
+2026-08-08 11:31:44,638 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\zakir_2023_cardiovascular_complications.pdf
+2026-08-08 11:31:52,751 | INFO     | __main__ | Ingested zakir_2023_cardiovascular_complications: 32 chunks
+2026-08-08 11:31:52,753 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\huang_2025_t2dm_global_burden.pdf
+2026-08-08 11:31:54,565 | INFO     | __main__ | Ingested huang_2025_t2dm_global_burden: 26 chunks
+2026-08-08 11:31:54,567 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\glucose_monitoring_review.pdf
+2026-08-08 11:32:02,593 | INFO     | __main__ | Ingested glucose_monitoring_review: 97 chunks
+2026-08-08 11:32:02,597 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\uusitupa_2019_t2dm_prevention_lifestyle.pdf
+2026-08-08 11:32:05,891 | INFO     | __main__ | Ingested uusitupa_2019_t2dm_prevention_lifestyle: 43 chunks
+2026-08-08 11:32:05,893 | INFO     | clinical_rag.ingestion.loaders | Already downloaded, skipping: data\raw\disease_specific\gdm_history_prevention_lifestyle.pdf
+2026-08-08 11:32:08,695 | INFO     | __main__ | Ingested gdm_history_prevention_lifestyle: 35 chunks
+2026-08-08 11:32:08,696 | INFO     | __main__ | Done. 904 total chunks written to data\processed\chunks.jsonl
+2026-08-08 11:34:21,596 | INFO     | __main__ | Loaded 904 chunks from data\processed\chunks.jsonl
+2026-08-08 11:34:21,596 | INFO     | clinical_rag.embeddings.embedder | Loading embedding model: sentence-transformers/all-MiniLM-L6-v2
+2026-08-08 11:34:22,631 | WARNING  | huggingface_hub.utils._http | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-08-08 11:34:28,304 | INFO     | __main__ | Embedding 904 chunks with sentence-transformers/all-MiniLM-L6-v2 (dimension=384)
+2026-08-08 11:35:18,551 | INFO     | clinical_rag.retrieval.vector_store | Saved index (904 vectors) to data\vector_store\index.faiss and metadata to data\vector_store\index.faiss.chunks.jsonl
+2026-08-08 11:35:18,552 | INFO     | __main__ | Done. Index built with 904 vectors -> data\vector_store\index.faiss

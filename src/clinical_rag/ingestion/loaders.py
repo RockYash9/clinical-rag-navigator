@@ -6,6 +6,7 @@ new document to the corpus means adding a YAML entry, not editing this module.
 from __future__ import annotations
 
 import logging
+import re
 import warnings
 from pathlib import Path
 
@@ -227,6 +228,29 @@ def extract_text_from_html(path: str | Path) -> str:
     return "\n".join(line for line in lines if line)
 
 
+# Academic papers commonly open with a title/author/DOI/journal-metadata
+# block that runs directly into "Abstract" with no clear separator in
+# extracted text — e.g. "Open Access ... DOI: 10.xxxx ... Review Article
+# Abstract Diabetes Mellitus is...". Unlike the repeated running-header
+# problem (handled in extract_text_from_pdf via frequency detection), this
+# is a one-time block that only appears once at the very start, so it needs
+# its own check. Feeding a chunk that mashes metadata into the real opening
+# sentence has been observed to reliably produce degenerate generations from
+# small local models. Searching only within the first ~1500 characters
+# keeps this safe for documents with no abstract at all (guidelines, book
+# chapters) — it simply becomes a no-op for them.
+_ABSTRACT_MARKER_RE = re.compile(r"\babstract\b", re.IGNORECASE)
+_FRONT_MATTER_SEARCH_WINDOW = 1500
+
+
+def strip_leading_front_matter(text: str) -> str:
+    window = text[:_FRONT_MATTER_SEARCH_WINDOW]
+    match = _ABSTRACT_MARKER_RE.search(window)
+    if match and match.start() > 0:
+        return text[match.end():].lstrip(" :\n")
+    return text
+
+
 def download_source(source: SourceDocument, dest_dir: str | Path = "data/raw") -> Path:
     """Dispatches to download_pdf or download_html based on source.source_type."""
     if source.source_type == "html":
@@ -235,7 +259,10 @@ def download_source(source: SourceDocument, dest_dir: str | Path = "data/raw") -
 
 
 def extract_text(source: SourceDocument, path: str | Path) -> str:
-    """Dispatches to the right text extractor based on source.source_type."""
+    """Dispatches to the right text extractor based on source.source_type,
+    then strips leading title/DOI/journal front matter if present."""
     if source.source_type == "html":
-        return extract_text_from_html(path)
-    return extract_text_from_pdf(path)
+        text = extract_text_from_html(path)
+    else:
+        text = extract_text_from_pdf(path)
+    return strip_leading_front_matter(text)

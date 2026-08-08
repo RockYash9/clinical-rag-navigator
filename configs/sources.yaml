@@ -78,3 +78,108 @@ sources:
     url: "https://www.ncbi.nlm.nih.gov/books/NBK425702/"
     license: "CC BY-NC-ND"
     source_type: html
+
+  # --- Manual-download batch: user downloads these in a browser and saves
+  # to data/raw/disease_specific/<id>.pdf — download_pdf() skips sources
+  # that already exist locally, so ingest.py picks them up automatically
+  # once placed, same as who_pen_2020 above.
+
+  - id: cavalli_2025_t1dm_historical_review
+    title: "A Historical and Epistemological Review of Type 1 Diabetes Mellitus"
+    tier: disease_specific
+    condition: diabetes
+    organization: "Journal of Clinical Medicine / MDPI (Cavalli et al., 2025)"
+    year: 2025
+    url: "https://www.mdpi.com/2077-0383/14/14/4923/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: yahaya_2020_t1dm_genes_pathogenesis
+    title: "Genes Predisposing to Type 1 Diabetes Mellitus and Pathophysiology: A Narrative Review"
+    tier: disease_specific
+    condition: diabetes
+    organization: "Medical Journal of Indonesia (Yahaya & Salisu, 2020)"
+    year: 2020
+    url: "https://arxiv.org/pdf/2101.06680"
+    license: "CC BY-NC 4.0"
+    manual_download: true
+
+  - id: gdm_pathophysiology_2018
+    title: "The Pathophysiology of Gestational Diabetes Mellitus"
+    tier: disease_specific
+    condition: diabetes
+    organization: "International Journal of Molecular Sciences / MDPI (2018)"
+    year: 2018
+    url: "https://www.mdpi.com/1422-0067/19/11/3342/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: gdm_molecular_clinical_2025
+    title: "From Molecular Insights to Clinical Management of Gestational Diabetes Mellitus"
+    tier: disease_specific
+    condition: diabetes
+    organization: "International Journal of Molecular Sciences / MDPI (2025)"
+    year: 2025
+    url: "https://doi.org/10.3390/ijms26178719"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: kulkarni_2024_retinopathy_nephropathy_neuropathy
+    title: "Understanding the Clinical Relationship Between Diabetic Retinopathy, Nephropathy, and Neuropathy"
+    tier: disease_specific
+    condition: diabetes
+    organization: "Cureus (Kulkarni, Thool, Daigavane, 2024)"
+    year: 2024
+    url: "https://www.cureus.com/articles/238995-understanding-the-clinical-relationship-between-diabetic-retinopathy-nephropathy-and-neuropathy-a-comprehensive-review.pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: zakir_2023_cardiovascular_complications
+    title: "Cardiovascular Complications of Diabetes: From Microvascular to Macrovascular Pathways"
+    tier: disease_specific
+    condition: diabetes
+    organization: "Cureus (Zakir et al., 2023)"
+    year: 2023
+    url: "https://doi.org/10.7759/cureus.45835"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: huang_2025_t2dm_global_burden
+    title: "Global Burden and Risk Factors of Type 2 Diabetes Mellitus from 1990 to 2021, with Forecasts to 2050"
+    tier: disease_specific
+    condition: diabetes
+    organization: "Frontiers in Endocrinology (Huang et al., 2025)"
+    year: 2025
+    url: "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2025.1538143/pdf"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: glucose_monitoring_review
+    title: "The Progress of Glucose Monitoring: Invasive to Minimally and Non-Invasive Techniques, Devices and Sensors"
+    tier: disease_specific
+    condition: diabetes
+    organization: "Sensors / MDPI"
+    year: 2019
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6412701/"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: uusitupa_2019_t2dm_prevention_lifestyle
+    title: "Prevention of Type 2 Diabetes by Lifestyle Changes: A Systematic Review and Meta-Analysis"
+    tier: disease_specific
+    condition: diabetes
+    organization: "Nutrients / MDPI (Uusitupa et al., 2019)"
+    year: 2019
+    url: "https://doi.org/10.3390/nu11112611"
+    license: "CC BY 4.0"
+    manual_download: true
+
+  - id: gdm_history_prevention_lifestyle
+    title: "Lifestyle Interventions to Prevent Type 2 Diabetes in Women with a History of Gestational Diabetes"
+    tier: disease_specific
+    condition: diabetes
+    organization: "Nutrients / MDPI"
+    year: 2023
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10649749/"
+    license: "CC BY 4.0"
+    manual_download: true

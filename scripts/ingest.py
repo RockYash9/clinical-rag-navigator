@@ -13,11 +13,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from clinical_rag.ingestion.chunking import chunk_text
-from clinical_rag.ingestion.loaders import (
-    download_source,
-    extract_text,
-    load_sources_config,
-)
+from clinical_rag.ingestion.loaders import download_source, load_sources_config
+from clinical_rag.ingestion.timeout_guard import extract_text_with_timeout
 from clinical_rag.utils.logging_config import setup_logging
 
 logger = logging.getLogger(__name__)
@@ -38,7 +35,7 @@ def main() -> None:
         for source in sources:
             try:
                 local_path = download_source(source)
-                text = extract_text(source, local_path)
+                text = extract_text_with_timeout(source, local_path)
             except Exception:
                 logger.exception("Failed to ingest source %s — skipping", source.id)
                 continue
